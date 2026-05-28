@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سازنده پیشرفته استقرار و بروزرسانی .NET</title>
+    <link href="https://cdn.jsdelivr.net/npm/vazirmatn@3.3.0/Vazirmatn-font-face.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --code-bg: #0f172a;
+            --code-text: #38bdf8;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            padding: 2rem 1rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: var(--text-muted);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        input {
+            padding: 0.85rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .step {
+            margin-bottom: 3rem;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-number {
+            background: var(--primary);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .step-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        p.description {
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .code-container {
+            position: relative;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        pre {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 1.75rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            direction: ltr;
+            text-align: left;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            border: 1px solid #334155;
+            white-space: pre;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #f8fafc;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+            font-weight: 600;
+        }
+
+        .copy-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .copy-btn.copied {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border-right: 4px solid #3b82f6;
+            padding: 1.25rem;
+            border-radius: 4px 8px 8px 4px;
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+            color: #1e3a8a;
+        }
+
+        .warning-box {
+            background: #fffbeb;
+            border-right: 4px solid var(--warning);
+            padding: 1.25rem;
+            border-radius: 4px 8px 8px 4px;
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+            color: #78350f;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>سامانه هوشمند استقرار و بروزرسانی مستمر .NET</h1>
+        <p>تشخیص پورت‌های خالی لینوکس و ساخت خودکار اسکریپت‌های Deploy اولیه و Updateهای بعدی با پدینگ استاندارد</p>
+    </header>
+
+    <!-- بخش ورودی‌ها -->
+    <div class="card">
+        <div class="card-title">مشخصات پروژه دات‌نت</div>
+        <div class="grid">
+            <div class="form-group">
+                <label for="domain">نام دامنه / ساب‌دامنه</label>
+                <input type="text" id="domain" value="api.skantisheh.ir" placeholder="api.yourdomain.com">
+            </div>
+            <div class="form-group">
+                <label for="appPath">مسیر کامل پوشه پروژه در سرور</label>
+                <input type="text" id="appPath" value="/var/www/vhosts/skantisheh.ir/api" placeholder="/var/www/vhosts/domain.com/httpdocs">
+            </div>
+            <div class="form-group">
+                <label for="dllName">نام فایل اصلی ریلیز (DLL)</label>
+                <input type="text" id="dllName" value="Api.dll" placeholder="MyProject.dll">
+            </div>
+            <div class="form-group">
+                <label for="port">پورت لوکال (یا پورت شناسایی شده از مرحله ۰)</label>
+                <input type="number" id="port" value="5000" placeholder="5000">
+            </div>
+            <div class="form-group" style="grid-column: span 2;">
+                <label for="serviceName">نام سرویس سیستمی لینوکس (Systemd Service)</label>
+                <input type="text" id="serviceName" value="skantisheh-api" placeholder="myproject-api">
+            </div>
+        </div>
+    </div>
+
+    <!-- بخش خروجی مراحل -->
+    <div class="card">
+        <div class="card-title">مراحل و دستورات ترمینال لینوکس</div>
+
+        <!-- گام ۰: تشخیص هوشمند پورت آزاد (اصلاح شده و بدون باگ) -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">۰</div>
+                <div class="step-title">یافتن آسان و مطمئن اولین پورت آزاد روی سرور</div>
+            </div>
+            <p class="description">کافیست دستور زیر را کپی کرده و در ترمینال سرور اجرا کنید. این دستور لیست پورت‌های فعال را بررسی کرده و اولین پورت آزاد بالای ۵۰۰۰ را مستقیماً به شما نمایش می‌دهد:</p>
+            <div class="code-container">
+                <button class="copy-btn" onclick="copyCode('code_port_detect')">کپی دستور اسکنر پورت</button>
+                <pre id="code_port_detect">for port in {5000..5100}; do ! ss -tulpn | grep -q ":$port " && echo "First free port: $port" && break; done</pre>
+            </div>
+        </div>
+
+        <!-- گام ۱ -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">۱</div>
+                <div class="step-title">تنظیم مالکیت فولدر پروژه</div>
+            </div>
+            <p class="description">جهت دسترسی کامل وب‌سرور به فایل‌های آپلود شده:</p>
+            <div class="code-container">
+                <button class="copy-btn" onclick="copyCode('code1')">کپی</button>
+                <pre id="code1"></pre>
+            </div>
+        </div>
+
+        <!-- گام ۲ -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">۲</div>
+                <div class="step-title">ساخت فایل سرویس لینوکس (Systemd)</div>
+            </div>
+            <p class="description">اجرای دستور ساخت فایل در ویرایشگر نانو:</p>
+            <div class="code-container">
+                <button class="copy-btn" onclick="copyCode('code2_command')">کپی</button>
+                <pre id="code2_command"></pre>
+            </div>
+            <p class="description" style="margin-top: 15px;">کدهای بدنه سرویس جهت پیست کردن در ادیتور نانو:</p>
+            <div class="code-container">
+                <button class="copy-btn" onclick="copyCode('code2_content')">کپی کدهای بدنه سرویس</button>
+                <pre id="code2_content"></pre>
+            </div>
+        </div>
+
+        <!-- گام ۳ -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">۳</div>
+                <div class="step-title">اجرا و فعال‌سازی اولیه سرویس</div>
+            </div>
+            <p class="description">فعال‌سازی سرویس بر روی استارت‌آپ سرور و روشن کردن آن برای اولین بار:</p>
+            <div class="code-container">
+                <button class="copy-btn" onclick="copyCode('code3')">کپی</button>
+                <pre id="code3"></pre>
+            </div>
+        </div>
+
+        <!-- گام ۴ -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">۴</div>
+                <div class="step-title">تنظیمات پروکسی Nginx در Plesk</div>
+            </div>
+            <div class="info-box">
+                مسیر: <strong>Plesk > Domains > [نام دامنه] > Apache & Nginx Settings</strong>
+            </div>
+            <p class="description">این کدها را در انتهای صفحه پلسک داخل باکس متنی <strong>Additional nginx directives</strong> قرار دهید:</p>
+            <div class="code-container">
+                <button class="copy-btn" onclick="copyCode('code5')">کپی کد Nginx</button>
+                <pre id="code5"></pre>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- بخش بروزرسانی و پابلیش‌های بعدی -->
+    <div class="card" style="border-color: var(--warning); background-color: #fffdf5;">
+        <div class="card-title" style="color: var(--warning); border-bottom-color: #fef3c7;">
+            <span>🔄 دستورات ری‌استارت و آپدیت سریع (مخصوص پابلیش‌های بعدی)</span>
+        </div>
+        <div class="warning-box">
+            وقتی تغییرات جدیدی در برنامه‌تان دادید و مجدداً فایل‌های جدید را آپلود کردید، نیازی به تکرار مراحل بالا نیست! کافیست دستور ترکیبی زیر را در ترمینال کپی و پیست کنید تا پرمیشن‌ها اصلاح شده، سرویس ری‌استارت شده و وضعیت نهایی آن چاپ شود.
+        </div>
+        <p class="description">این دستور ترکیبی به ترتیب: سرویس را خاموش می‌کند، پرمیشن‌ها را اصلاح کرده، سرویس را مجدداً راه‌اندازی (Restart) می‌کند و در نهایت وضعیت لاگ‌های زنده آن را به شما نشان می‌دهد:</p>
+        <div class="code-container">
+            <button class="copy-btn" style="background: var(--warning); border-color: #d97706;" onclick="copyCode('code_update_fast')">کپی دستور ری‌استارت و پابلیش</button>
+            <pre id="code_update_fast" style="border-right: 4px solid var(--warning); color: #f59e0b;"></pre>
+        </div>
+    </div>
+</div>
+
+<script>
+    // المان‌های ورودی
+    const domainInput = document.getElementById('domain');
+    const appPathInput = document.getElementById('appPath');
+    const dllNameInput = document.getElementById('dllName');
+    const portInput = document.getElementById('port');
+    const serviceNameInput = document.getElementById('serviceName');
+
+    // المان‌های خروجی کدها
+    const code1 = document.getElementById('code1');
+    const code2_command = document.getElementById('code2_command');
+    const code2_content = document.getElementById('code2_content');
+    const code3 = document.getElementById('code3');
+    const code5 = document.getElementById('code5');
+    const code_update_fast = document.getElementById('code_update_fast');
+
+    function generateCodes() {
+        const domain = domainInput.value.trim() || 'api.yourdomain.com';
+        const appPath = appPathInput.value.trim().replace(/\/$/, '') || '/var/www/vhosts/yourdomain/api';
+        const dllName = dllNameInput.value.trim() || 'Api.dll';
+        const port = portInput.value.trim() || '5000';
+        const service = serviceNameInput.value.trim() || 'my-api';
+
+        // گام ۱
+        code1.textContent = `chown -R www-data:www-data ${appPath}`;
+
+        // گام ۲ - باز کردن نانو
+        code2_command.textContent = `nano /etc/systemd/system/${service}.service`;
+
+        // گام ۲ - بدنه سرویس
+        code2_content.textContent = `[Unit]
+Description=DotNet API for ${domain}
+After=network.target
+
+[Service]
+WorkingDirectory=${appPath}
+ExecStart=/usr/bin/dotnet ${appPath}/${dllName} --urls "http://127.0.0.1:${port}"
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=${service}
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target`;
+
+        // گام ۳
+        code3.textContent = `systemctl daemon-reload
+systemctl enable ${service}.service
+systemctl start ${service}.service`;
+
+        // گام ۵ - Nginx
+        code5.textContent = `proxy_pass http://127.0.0.1:${port};
+proxy_http_version 1.1;
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection keep-alive;
+proxy_set_header Host $host;
+proxy_cache_bypass $http_upgrade;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header X-Forwarded-Proto $scheme;`;
+
+        // بخش جدید: ری‌استارت، اصطلاح پرمیشن‌ها و نمایش وضعیت بلافاصله پس از پابلیش مجدد
+        code_update_fast.textContent = `systemctl stop ${service}.service && chown -R www-data:www-data ${appPath} && systemctl start ${service}.service && systemctl status ${service}.service`;
+    }
+
+    // کپی کردن کد در کلیپ‌بورد با افکت متنی دکمه
+    function copyCode(elementId) {
+        const element = document.getElementById(elementId);
+        const textToCopy = element.textContent;
+
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            const button = element.parentElement.querySelector('.copy-btn');
+            const originalText = button.textContent;
+            button.textContent = 'کپی شد!';
+            button.classList.add('copied');
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('copied');
+            }, 2000);
+        }).catch(err => {
+            console.error('کپی انجام نشد: ', err);
+        });
+    }
+
+    // مانیتور کردن تغییرات فیلدها جهت آپدیت لحظه‌ای کدها
+    [domainInput, appPathInput, dllNameInput, portInput, serviceNameInput].forEach(input => {
+        input.addEventListener('input', generateCodes);
+    });
+
+    // لود اولیه کدهای پیشفرض
+    generateCodes();
+</script>
+
+</body>
+</html>
