@@ -1,55 +1,117 @@
-# 🚀 .NET Linux & Plesk DevOps Suite
+🚀 .NET Deployment Suite (Multi-Platform)
 
-Welcome to the ultimate collection of utility tools, configuration generators, and automation scripts tailored specifically for deploying, managing, and optimizing **.NET (Core) Applications** on **Linux servers, Plesk Panel, and Nginx**.
+A comprehensive collection of tools, scripts, and configurations designed to simplify the deployment of .NET applications across various environments including Linux Terminal (Ubuntu/Debian/CentOS), Plesk, CPanel, and IIS.
 
-> **فارسی:** به مجموعه تخصصی ابزارها، سازنده‌های کانفیگ و اسکریپت‌های خودکارسازی جهت استقرار، مدیریت و بهینه‌سازی برنامه‌های **دات‌نت (Core)** روی **سرورهای لینوکس، کنترل‌پنل پلسک و وب‌سرور Nginx** خوش آمدید.
 
----
 
-## 📂 Active Tools (ابزارهای فعال)
+🛠️ Integrated Platforms
 
-### 1. 🛠️ [.NET Linux & Plesk Deployment Generator](./Smart-Linux-Plesk-Generator/)
-An interactive multi-language web utility to automate .NET web application deployments. 
-* **Key Features:** Generates Systemd Service files, Nginx Reverse Proxy blocks, automatic port finder scripts, and one-line Hot-Reload deployment commands.
-* **Languages:** English, Persian (فارسی), and Arabic (العربية).
-* **How to use:** Navigate to the folder and open `index.html` in any browser, or use the online GitHub Pages link.
+This suite provides specialized automation for:
 
----
 
-## 🗺️ .NET DevOps Roadmap (نقشه راه ابزارهای دات‌نت)
 
-We are building a comprehensive ecosystem of tools for .NET developers. Here is what is coming next:
 
-### 🔹 Category 1: Web Servers & Proxy (Nginx / IIS)
-* [ ] **Nginx Config Optimizer for .NET APIs:** Fine-tune payload sizes, timeouts, and buffers specifically for Kestrel.
-* [ ] **IIS to Nginx Rewrite Converter:** Easily migrate legacy ASP.NET rewrite rules to Nginx format.
-* [ ] **Multi-Domain CORS Generator for .NET:** Create secure Nginx headers for detached Blazor/React/Angular frontends.
 
-### 🔹 Category 2: Process & Service Management
-* [ ] **Systemd Multi-Service Orchestrator:** Manage multiple .NET microservices boot order (e.g., waiting for PostgreSQL/SQL Server).
-* [ ] **Kestrel Port Conflict Resolver:** A shell script to identify and release ports occupied by ghost .NET processes.
-* [ ] **ASP.NET Core Environment Manager:** Securely generate and encrypt `.env` files and systemd environment variables.
+🐧 Linux Terminal: Pure Systemd + Nginx/Caddy setups.
 
-### 🔹 Category 3: Dockerization & Containers
-* [ ] **Multi-Stage .NET Dockerfile Builder:** Create secure, ultra-small, non-root Alpine-based Dockerfiles for .NET 8/9.
-* [ ] **Docker Compose for .NET Stack:** Spin up .NET API + SQL Server + Redis + Seq Log server in seconds.
-* [ ] **K8s Manifest Generator for .NET:** Generate deployment, service, and ingress YAML files for Kubernetes.
 
-### 🔹 Category 4: CI/CD & Automation
-* [ ] **GitHub Actions Pipeline for .NET:** CI/CD workflows for building, testing, publishing, and SSH-deploying .NET apps.
-* [ ] **GitLab CI .NET Builder:** Multi-stage runner config with caching for NuGet dependencies to speed up builds.
-* [ ] **Auto Hot-Reload Deployer Script:** Seamlessly sync build artifacts and restart the systemd service in one command.
 
----
+🏢 Plesk: Advanced Proxy rules and Environment variable management.
 
-## 🇮🇷 راهنمای فارسی مخزن
 
-هدف این مخزن، برطرف کردن تمامی چالش‌های توسعه‌دهندگان دات‌نت در زمان انتقال پروژه‌ها از محیط ویندوز/ویژوال استودیو به سرورهای لینوکس و کنترل‌پنل‌هایی مانند پلسک (Plesk) است. 
 
-### ابزارهای فعال:
-1. **[سازنده هوشمند اسکریپت استقرار لینوکس و پلسک](./Smart-Linux-Plesk-Generator/)**: تولیدکننده وب تعاملی برای ایجاد آسان سرویس‌های Systemd لینوکس، کدهای Reverse Proxy در Nginx و کدهای ترمینال استقرار سریع دات‌نت بدون تداخل پورت.
+🐚 CPanel: Passenger/Proxy configurations for .NET Core.
 
----
 
-## 🤝 Contributing (مشارکت)
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make to improve these .NET tools are **greatly appreciated**.
+
+🐳 Docker: Optimized Dockerfiles and Compose templates for .NET.
+
+
+
+📂 Project Structure & Roadmap
+
+The tools are categorized into 14 professional sectors. Each folder contains a standalone tool:
+
+🌐 01. Web Servers & Proxy
+
+
+
+
+
+01-deployment-generator: Interactive Web UI for Linux/Plesk (Multi-language).
+
+
+
+02-nginx-config-wizard: Professional Nginx configuration builder with Rate Limiting & Security.
+
+
+
+03-caddy-configurator: Caddyfile generator for automatic SSL.
+
+⚙️ 02. Process & Service Management
+
+
+
+
+
+04-systemd-service-builder: Create robust .service files for Kestrel.
+
+
+
+05-process-monitor-scripts: Auto-restart scripts if the app crashes.
+
+🛡️ 03. Security & Hardening
+
+
+
+
+
+06-nginx-security-hardener: Implementation of HSTS, CSP, and XSS protection.
+
+
+
+07-fail2ban-dotnet-jail: Custom Fail2Ban filters for .NET logs.
+
+(... more categories will be populated according to the 135-tool master list)
+
+
+
+🚀 Getting Started
+
+
+
+
+
+Clone the repo:
+
+git clone https://github.com/your-username/dotnet-deployer-tool.git
+
+
+
+
+Open the Hub:
+Simply open index.html in your browser or visit [GitHub Pages Link].
+
+
+
+🤝 Contributing
+
+Contributions are what make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+
+
+
+🌍 Languages
+
+
+
+
+
+🇬🇧 English
+
+
+
+🇮🇷 Persian (فارسی)
+
+
+
+🇸🇦 Arabic (العربية)
